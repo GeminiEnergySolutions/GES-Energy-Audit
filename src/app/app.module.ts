@@ -1,6 +1,7 @@
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {NgbCollapseModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastModule} from 'ng-bootstrap-ext';
@@ -12,6 +13,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 // import {FormsModule as AppFormsModule} from './forms/forms.module';
 // import {ParseModule} from './parse/parse.module';
+// import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { HomeComponent } from './home/home.component';
   ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         NgbCollapseModule,
         AppRoutingModule,

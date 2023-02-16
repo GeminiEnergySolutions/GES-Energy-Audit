@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'ng-bootstrap-ext';
-import { FormComponent } from '../form/form.component';
+import { FormComponent } from '../shared/form/form.component';
 import { AuditService } from '../shared/services/audit.service';
 
 @Component({
@@ -26,10 +26,9 @@ export class AuditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.auditService.getFirstAudit().subscribe((res: any) => {
-    //   this.audit = res;
-    // })
-    console.log('');
+    this.auditService.getSingleAudit(this.route.snapshot.params.aid).subscribe((res: any) => {
+      this.audit = res;
+    });
   }
 
   isSaved(): boolean {

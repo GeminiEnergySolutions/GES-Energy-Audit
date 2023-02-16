@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FormsModule as AppFormsModule } from '../form/form.module';
+import { FormsModule as AppFormsModule } from '../shared/form/form.module';
 import { NgbDropdownModule, NgbNavModule, NgbTooltipModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../shared/shared.module';
 import { AuditRoutingModule } from './audit-routing.module';
@@ -21,6 +21,8 @@ import { EquipmentService } from '../shared/services/equipment.service';
 import { PreTypeComponent } from './zone-list/zone/type-list/pre-type/pre-type.component';
 import { TypeComponent } from './zone-list/zone/type-list/type/type.component';
 import { PhotosComponent } from './photos/photos.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+// import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -34,6 +36,7 @@ import { PhotosComponent } from './photos/photos.component';
     AppFormsModule,
     NgbTypeaheadModule,
     HttpClientModule,
+    // MatDialogModule
     // CompanycamModule,
   ],
   providers: [
@@ -55,20 +58,14 @@ import { PhotosComponent } from './photos/photos.component';
     AuditComponent,
     PreAuditComponent,
     ZoneListComponent,
-    // PhotosComponent,
+    PhotosComponent,
     PreZoneComponent,
     ZoneComponent,
     TypeListComponent,
     PreTypeComponent,
     TypeComponent,
-    PhotosComponent,
-    // ZoneComponent,
-    // TypeComponent,
-    // PreZoneComponent,
-    // PreTypeComponent,
-    // TypeListComponent,
+    FileUploadComponent,
     // AccessControlComponent,
-    // PhotosComponent,
   ],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: '',
     component: PreAuditComponent,
-    children: [
+    children: [ 
       {
         path: ':aid',
         component: AuditComponent,

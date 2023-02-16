@@ -3,8 +3,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'ng-bootstrap-ext';
 import { switchMap, tap } from 'rxjs';
-import { AuditService } from '../shared/services/audit.service';
-import { EquipmentService } from '../shared/services/equipment.service';
+import { AuditService } from '../services/audit.service';
+import { EquipmentService } from '../services/equipment.service';
 
 class AuditorInfo {
   preAuditauditorName: string = '';
