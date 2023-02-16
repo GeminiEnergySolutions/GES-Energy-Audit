@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>
+    <a class="bi-chevron-left d-lg-none" routerLink=".."></a>
+    {{ equipmentService.equipmentSubTypeData?.name | titlecase }}
+    <span class="text-muted small">
+      {{ equipmentService.equipmentSubTypeData?.type?.name | titlecase }}
+    </span>
+    <!-- <a class="btn btn-primary ms-2 bi-camera" [href]="'ccam://camera/' + project?.id | safe:'url'"
+       (click)="startCapture(); modalService.open(tagModal, {ariaLabelledBy: 'tag-modal-title'})">
+      Capture Photo
+    </a> -->
+  </h1>
+
+  <app-form #form></app-form>
+</div>

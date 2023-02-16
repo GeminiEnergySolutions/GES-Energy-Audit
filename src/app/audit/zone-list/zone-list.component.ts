@@ -1,0 +1,73 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ToastService } from 'ng-bootstrap-ext';
+import { switchMap } from 'rxjs';
+import { AuditZoneService } from 'src/app/shared/services/audit-zone.service';
+import { AuditService } from 'src/app/shared/services/audit.service';
+
+@Component({
+  selector: 'app-zone-list',
+  templateUrl: './zone-list.component.html',
+  styleUrls: ['./zone-list.component.scss']
+})
+export class ZoneListComponent implements OnInit {
+
+  zones: any = [];
+
+  constructor(
+    private route: ActivatedRoute,
+    private auditService: AuditService,
+    private zoneService: AuditZoneService,
+    private toastService: ToastService,
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.route.params.pipe(
+      switchMap(({ aid }) => this.zoneService.getAllAuditZone(aid)),
+    ).subscribe((zones: []) => {
+      this.zones = zones;
+    });
+  }
+
+  create(): void {
+    const name = prompt('New Zone Name');
+    if (!name) {
+      return;
+    }
+
+    this.route.params.pipe(
+      switchMap(({ aid }) => this.zoneService.createAuditZone({ auditId: aid, zoneName: name }, aid)),
+    ).subscribe((res: any) => {
+      this.zones.push(res);
+    });
+  }
+
+  rename(zone: any) {
+    const name = prompt('Rename Audit', zone.zoneName);
+    if (!name) {
+      return;
+    }
+    let zoneData = { ...zone, zoneName: name };
+
+    this.route.params.pipe(
+      switchMap(({ aid }) => this.zoneService.updateAuditZone(zoneData, aid)),
+    ).subscribe((res: any) => {
+      let index = this.zones.indexOf(zone);
+      this.zones[index] = zoneData;
+    });
+  }
+
+  delete(zone: any) {
+    if (!confirm(`Are you sure you want to delete rename'${zone.zoneName}'?`)) {
+      return;
+    }
+    this.route.params.pipe(
+      switchMap(({ aid }) => this.zoneService.deleteAuditZone(zone.zoneId, aid)),
+    ).subscribe((res: any) => {
+      let index = this.zones.findIndex((a: any) => a.zoneId === zone.zoneId);
+      this.zones.splice(index, 1);
+    });
+  }
+
+}

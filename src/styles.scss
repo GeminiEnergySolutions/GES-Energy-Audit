@@ -1,0 +1,39 @@
+$appPrimary: #3f51b5;
+$appPrimaryDark: #303f9f;
+$appAccent: #ff4081;
+$appToolbarBackground: #689f38;
+$websitePrimary: #1c9d12;
+
+$primary: $appToolbarBackground;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "node_modules/bootstrap-darkmode/scss/darktheme";
+
+html, body {
+  height: 100%;
+}
+
+.btn-floating-action {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.visible-hover {
+  visibility: hidden;
+}
+
+:hover > .visible-hover {
+  visibility: unset;
+}
+
+:hover + .visible-hover {
+  visibility: unset;
+}
+
+@media (hover: none) {
+  .visible-hover {
+    visibility: unset;
+  }
+}

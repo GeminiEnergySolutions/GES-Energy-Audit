@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>
+    <a class="bi-chevron-left d-lg-none" routerLink=".."></a>
+    {{ zone?.zoneName | titlecase }}
+  </h1>
+
+  <ul ngbNav [activeId]="route.firstChild?.snapshot?.params?.type" class="nav-tabs">
+    <li [ngbNavItem]="item.equipmentName" *ngFor="let item of equipmentService.equipments">
+      <a ngbNavLink [routerLink]="item.equipmentName">{{item.equipmentName | titlecase}}</a>
+    </li>
+    <!-- <li ngbNavItem="Plugload">
+      <a ngbNavLink routerLink="Plugload">Plugload</a>
+    </li>
+    <li ngbNavItem="Refrigeration">
+      <a ngbNavLink routerLink="Refrigeration">Refrigeration</a>
+    </li>
+    <li ngbNavItem="Lighting">
+      <a ngbNavLink routerLink="Lighting">Lighting</a>
+    </li>
+    <li ngbNavItem="WaterHeater">
+      <a ngbNavLink routerLink="WaterHeater">WaterHeater</a>
+    </li>
+    <li ngbNavItem="HVAC">
+      <a ngbNavLink routerLink="HVAC">HVAC</a>
+    </li>
+    <li ngbNavItem="Motors">
+      <a ngbNavLink routerLink="Motors">Motors</a>
+    </li> -->
+  </ul>
+  <router-outlet></router-outlet>
+</div>
