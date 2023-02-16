@@ -1,1 +1,22 @@
-<p>file-upload works!</p>
+<h2 class="text-center">Upload Files</h2>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col">
+      <div><label for="cdd" class="mb-2" style="font-weight: bold;">CDD</label></div>
+      <input id="cdd" type="file" accept=".xlsx, .xls, .csv" (change)="onChangeCDD($event)">
+    </div>
+    <div class="col my-3">
+      <div><label for="hdd" class="mb-2" style="font-weight: bold;">HDD</label></div>
+      <input id="hdd" type="file" accept=".xlsx, .xls, .csv" (change)="onFileChangeHDD($event)">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col" style="text-align: right;">
+    <button class="btn btn-secondary" (click)="onClose()" style="margin-right: 5px;">Close</button>
+    <button class="btn btn-success" (click)="onCloseDialog()" [disabled]="!formData.cdd || !formData.hdd">Save</button>
+  </div>
+</div>
+
+<!-- mat-dialog-close -->

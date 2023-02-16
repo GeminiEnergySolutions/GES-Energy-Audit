@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'ng-bootstrap-ext';
 import { FormComponent } from '../shared/form/form.component';
 import { AuditService } from '../shared/services/audit.service';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @Component({
   selector: 'app-audit',
@@ -23,6 +25,7 @@ export class AuditComponent implements OnInit {
   constructor(private auditService: AuditService,
     private toastService: ToastService,
     public route: ActivatedRoute,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +36,23 @@ export class AuditComponent implements OnInit {
 
   isSaved(): boolean {
     return !this.form?.dirty;
+  }
+
+  uploadFileDialog() {
+    let dialogRef = this.dialog.open(FileUploadComponent, {
+      width: '500px',
+    });
+
+    dialogRef.afterClosed().subscribe((res: any) => {
+      if (res) {
+        const formData = new FormData();
+        formData.append('auditId', this.route.snapshot.params.aid);
+        formData.append('cdd', res.cdd);
+        formData.append('hdd', res.hdd);
+        this.auditService.uploadFileData(formData).subscribe((res: any) => {
+        });
+      }
+    });
   }
 
   // save(data: FeatureData) {

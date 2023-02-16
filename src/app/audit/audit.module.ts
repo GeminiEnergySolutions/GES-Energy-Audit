@@ -22,7 +22,6 @@ import { PreTypeComponent } from './zone-list/zone/type-list/pre-type/pre-type.c
 import { TypeComponent } from './zone-list/zone/type-list/type/type.component';
 import { PhotosComponent } from './photos/photos.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-// import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -36,7 +35,6 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     AppFormsModule,
     NgbTypeaheadModule,
     HttpClientModule,
-    // MatDialogModule
     // CompanycamModule,
   ],
   providers: [

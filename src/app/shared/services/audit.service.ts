@@ -12,6 +12,10 @@ export class AuditService {
 
   constructor(private http: HttpClient,) { }
 
+  uploadFileData(formData: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}file/`, formData);
+  }
+
   getSingleAudit(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}audits/${auditId}/`);
   }

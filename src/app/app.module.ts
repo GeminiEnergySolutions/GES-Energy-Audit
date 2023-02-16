@@ -13,7 +13,6 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 // import {FormsModule as AppFormsModule} from './forms/forms.module';
 // import {ParseModule} from './parse/parse.module';
-// import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [

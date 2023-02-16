@@ -7,6 +7,9 @@ import { OptionDropdownComponent } from './components/option-dropdown/option-dro
 import {SafePipe} from './safe.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     FormsModule,
     NgbDropdownModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   exports: [
     MasterDetailComponent,
