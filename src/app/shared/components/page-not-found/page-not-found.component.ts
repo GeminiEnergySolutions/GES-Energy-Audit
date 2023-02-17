@@ -8,12 +8,4 @@ import { Router } from '@angular/router';
 })
 export class PageNotFoundComponent {
 
-  constructor(private router: Router,
-  ) {
-    if (this.router.url === '/admin') {
-      this.router.ngOnDestroy();
-      window.location.href = 'http://127.0.0.1:8000/admin/';
-    }
-  }
-
 }

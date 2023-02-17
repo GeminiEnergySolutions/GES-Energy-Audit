@@ -36,7 +36,6 @@ export class FileUploadComponent {
     }
   }
   onFileChangeHDD(event: any) {
-    debugger
     if (event.target.files.length) {
       if (event.target.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && event.target.files[0].type !== 'application/vnd.ms-excel') {
         this.formData.hdd = null;
