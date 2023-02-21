@@ -7,6 +7,8 @@ import { OptionDropdownComponent } from './components/option-dropdown/option-dro
 import { SafePipe } from './safe.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
     MasterDetailComponent,
     OptionDropdownComponent,
     PageNotFoundComponent,
+    NavBarComponent,
     SafePipe,
   ],
   imports: [
@@ -24,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule,
     FormsModule,
     NgbDropdownModule,
+    NgbCollapseModule,
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
@@ -32,6 +36,7 @@ import { MatIconModule } from '@angular/material/icon';
     MasterDetailComponent,
     OptionDropdownComponent,
     PageNotFoundComponent,
+    NavBarComponent,
     SafePipe,
   ],
   providers: [DatePipe]

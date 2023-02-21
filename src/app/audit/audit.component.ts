@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'ng-bootstrap-ext';
+import { switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { FormComponent } from '../shared/form/form.component';
 import { AuditService } from '../shared/services/audit.service';
@@ -32,7 +33,11 @@ export class AuditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auditService.getSingleAudit(this.route.snapshot.params.aid).subscribe((res: any) => {
+    this.route.params.pipe(
+      switchMap(({ aid }) => {
+        return this.auditService.getSingleAudit(aid);
+      }),
+    ).subscribe((res: any) => {
       this.audit = res;
     });
   }
