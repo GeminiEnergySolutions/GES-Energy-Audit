@@ -69,7 +69,7 @@ export class TypeListComponent implements OnInit {
         this.types = res;
       });
       if (this.equipment.subTypeExist) {
-        this.equipmentService.getEquipmentSubTypes(this.auditId, equipment.id).subscribe((res: any) => {
+        this.equipmentService.getEquipmentSubTypes(this.auditId, this.route.snapshot.params.zid, equipment.id).subscribe((res: any) => {
           this.subtypes = res;
         });
       }

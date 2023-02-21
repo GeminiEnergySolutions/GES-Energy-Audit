@@ -30,8 +30,8 @@ export class EquipmentService {
   getSingleEquipmentSubType(subTypeId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}equipmentSubType/${subTypeId}/`);
   }
-  getEquipmentSubTypes(auditId: number, equipmentId: string): Observable<any> {
-    return this.http.get(`${this.rootUrl}equipmentSubType/audit/${auditId}/equipment/${equipmentId}/`);
+  getEquipmentSubTypes(auditId: number, zoneId: number, equipmentId: string): Observable<any> {
+    return this.http.get(`${this.rootUrl}equipmentSubType/audit/${auditId}/zone/${zoneId}/equipment/${equipmentId}/`);
   }
   createEquipmentSubType(equipmentSubTypeData: any): Observable<any> {
     return this.http.post(`${this.rootUrl}equipmentSubType/`, equipmentSubTypeData);

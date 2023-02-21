@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'ng-bootstrap-ext';
+import { environment } from 'src/environments/environment.prod';
 import { FormComponent } from '../shared/form/form.component';
 import { AuditService } from '../shared/services/audit.service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
@@ -26,7 +27,9 @@ export class AuditComponent implements OnInit {
     private toastService: ToastService,
     public route: ActivatedRoute,
     private dialog: MatDialog,
-  ) { }
+  ) {
+    this.serverUrl = environment.url;
+  }
 
   ngOnInit(): void {
     this.auditService.getSingleAudit(this.route.snapshot.params.aid).subscribe((res: any) => {

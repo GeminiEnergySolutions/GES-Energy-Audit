@@ -16,6 +16,10 @@ export class AuditService {
     return this.http.post(`${this.rootUrl}file/`, formData);
   }
 
+  downloadFile(auditId: number): Observable<any> {
+    return this.http.get(`${this.rootUrl}auditId/`);
+  }
+
   getSingleAudit(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}audits/${auditId}/`);
   }
