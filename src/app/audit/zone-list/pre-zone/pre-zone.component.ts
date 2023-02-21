@@ -11,6 +11,8 @@ import { AuditService } from 'src/app/shared/services/audit.service';
 export class PreZoneComponent implements OnInit {
 
   audit: any;
+  overFlow: boolean = false;
+  
   constructor(private auditService: AuditService,
     private route: ActivatedRoute,
   ) { }
@@ -21,6 +23,10 @@ export class PreZoneComponent implements OnInit {
     ).subscribe(audit => {
       this.audit = audit;
     });
+  }
+
+  getOverFlow(overFlow: boolean) {
+    this.overFlow = overFlow;
   }
 
 }

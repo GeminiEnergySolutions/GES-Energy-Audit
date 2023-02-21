@@ -1,4 +1,4 @@
-<app-master-detail>
+<app-master-detail [overFlow]="overFlow">
   <nav breadcrumb aria-label="breadcrumb">
     <ol class="breadcrumb p-3 bg-light bg-darkmode-dark">
       <li class="breadcrumb-item"><a routerLink="../../../..">Audits</a></li>
@@ -8,5 +8,5 @@
       <li class="breadcrumb-item active" aria-current="page">{{type | titlecase}}</li>
     </ol>
   </nav>
-  <app-type-list list></app-type-list>
+  <app-type-list list (outPutOverFlow)="getOverFlow($event)"></app-type-list>
 </app-master-detail>

@@ -1,11 +1,14 @@
-<div class="container">
-  <h1>
-    <a class="bi-chevron-left d-lg-none" routerLink=".."></a>
-    {{ audit?.auditName | titlecase }}
-  </h1>
+<div>
+
   <div class="row">
-    <a class="btn btn-success col-lg-2 col-6"
-      [href]="serverUrl + 'download/'+this.route.snapshot.params.aid+'/'" download="report.docx">
+    <h1>
+      <a class="bi-chevron-left d-lg-none" routerLink=".."></a>
+      {{ audit?.auditName | titlecase }}
+    </h1>
+  </div>
+  <div class="row m-0" style="margin-bottom: 10px !important;">
+    <a class="btn btn-success col-lg-2 col-6" [href]="serverUrl + 'download/'+this.route.snapshot.params.aid+'/'"
+      download="report.docx">
       Generate Report
     </a>
     <div class="offset-lg-8 offset-0 col-lg-2 col-6" style="text-align: right;">
@@ -17,7 +20,7 @@
     <li ngbNavItem="preaudit">
       <a ngbNavLink routerLink=".">Preaudit</a>
       <ng-template ngbNavContent>
-        <div class="container">
+        <div style="margin-top: -7px;">
           <app-form #form></app-form>
         </div>
       </ng-template>

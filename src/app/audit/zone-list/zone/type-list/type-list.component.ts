@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'ng-bootstrap-ext';
 import { switchMap, tap } from 'rxjs';
@@ -12,6 +12,8 @@ import { EquipmentService } from 'src/app/shared/services/equipment.service';
   styleUrls: ['./type-list.component.scss']
 })
 export class TypeListComponent implements OnInit {
+
+  @Output() outPutOverFlow: EventEmitter<boolean> = new EventEmitter();
 
   auditId?: any;
   equipment?: any;
@@ -71,10 +73,16 @@ export class TypeListComponent implements OnInit {
       if (this.equipment.subTypeExist) {
         this.equipmentService.getEquipmentSubTypes(this.auditId, this.route.snapshot.params.zid, equipment.id).subscribe((res: any) => {
           this.subtypes = res;
+          if (this.subtypes.length * 60 > window.innerHeight - 210) {
+            this.outPutOverFlow.emit(true);
+          } else {
+            this.outPutOverFlow.emit(false);
+          }
         });
       }
       else {
         this.subtypes = [];
+        this.outPutOverFlow.emit(false);
       }
     });
 
@@ -97,6 +105,11 @@ export class TypeListComponent implements OnInit {
 
     this.equipmentService.createEquipmentSubType(dataObj).subscribe((res: any) => {
       this.subtypes.push(res);
+      if (this.subtypes.length * 60 > window.innerHeight - 210) {
+        this.outPutOverFlow.emit(true);
+      } else {
+        this.outPutOverFlow.emit(false);
+      }
     });
 
   }
@@ -123,6 +136,11 @@ export class TypeListComponent implements OnInit {
     this.equipmentService.deleteEquipmentSubType(item.id).subscribe((res: any) => {
       let index = this.subtypes.indexOf(item);
       this.subtypes.splice(index, 1);
+      if (this.subtypes.length * 60 > window.innerHeight - 210) {
+        this.outPutOverFlow.emit(true);
+      } else {
+        this.outPutOverFlow.emit(false);
+      }
     })
   }
 

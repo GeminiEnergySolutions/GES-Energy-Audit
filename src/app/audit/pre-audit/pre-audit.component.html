@@ -1,4 +1,4 @@
-<app-master-detail>
+<app-master-detail [overFlow]="overFlow">
   <nav breadcrumb aria-label="breadcrumb">
     <ol class="breadcrumb p-3 bg-light bg-darkmode-dark">
       <li class="breadcrumb-item active" aria-current="page">Audits</li>
@@ -11,7 +11,7 @@
     <a *ngFor="let audit of audits" class="list-group-item list-group-item-action d-flex align-items-center"
       [routerLink]="[audit.auditId]" routerLinkActive="active text-white">
       <div class="flex-grow-1">
-        {{audit.auditName}}
+        {{audit.auditName | titlecase}}
         <i *ngIf="audit.pendingChanges !== undefined" class="bi-wifi-off" ngbTooltip="Available Offline"></i>
       </div>
       <app-option-dropdown class="visible-hover" [id]="audit.auditId">

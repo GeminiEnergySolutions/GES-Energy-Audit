@@ -14,6 +14,7 @@ export class PreTypeComponent implements OnInit {
   audit?: any;
   zone?: any;
   type?: string;
+  overFlow: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private auditService: AuditService,
@@ -36,6 +37,10 @@ export class PreTypeComponent implements OnInit {
     ).subscribe((zone: any) => {
       this.zone = zone;
     });
+  }
+
+  getOverFlow(overFlow: boolean) {
+    this.overFlow = overFlow;
   }
 
 }

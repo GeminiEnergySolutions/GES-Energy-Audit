@@ -11,10 +11,13 @@ import { AuditService } from 'src/app/shared/services/audit.service';
 export class PreAuditComponent implements OnInit {
 
   audits: any = [];//Audit[] = [];
+  overFlow: boolean = false;
 
   constructor(private auditService: AuditService,
     private toastService: ToastService,
-  ) { }
+  ) {
+    // alert(window.innerHeight - 210)
+  }
 
   ngOnInit(): void {
     // this.auditService.findAll().subscribe(audits => {
@@ -22,6 +25,9 @@ export class PreAuditComponent implements OnInit {
     // });
     this.auditService.getAllAudit().subscribe((res: any[]) => {
       this.audits = res;
+      if (this.audits.length * 60 > window.innerHeight - 210) {
+        this.overFlow = true;
+      }
     })
   }
 
@@ -33,7 +39,12 @@ export class PreAuditComponent implements OnInit {
 
     this.auditService.createAudit({ auditName: name }).subscribe((res: any) => {
       this.audits.push(res);
-    })
+      if (this.audits.length * 60 > window.innerHeight - 210) {
+        this.overFlow = true;
+      } else {
+        this.overFlow = false;
+      }
+    });
   }
 
   // rename(audit: Audit) {
@@ -58,6 +69,11 @@ export class PreAuditComponent implements OnInit {
     this.auditService.deleteAudit(audit.auditId).subscribe((res: any) => {
       let index = this.audits.findIndex((a: any) => a.auditId === audit.auditId);
       this.audits.splice(index, 1);
+      if (this.audits.length * 60 > window.innerHeight - 210) {
+        this.overFlow = true;
+      } else {
+        this.overFlow = false;
+      }
     })
   }
 
