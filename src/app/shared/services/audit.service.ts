@@ -17,7 +17,7 @@ export class AuditService {
   }
 
   downloadFile(auditId: number): Observable<any> {
-    return this.http.get(`${this.rootUrl}auditId/`);
+    return this.http.get(`${this.rootUrl}download/${auditId}/`);
   }
 
   getSingleAudit(auditId: number): Observable<any> {
