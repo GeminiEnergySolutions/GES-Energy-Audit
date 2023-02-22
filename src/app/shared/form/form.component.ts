@@ -590,55 +590,55 @@ export class FormComponent implements OnInit {
         if (objData.id)
           returnData = this.auditService.updateAuditorInfo(aid, objData);
         else
-          returnData = this.auditService.createAuditorInfo(aid, objData);
+          returnData = this.auditService.createAuditorInfo(objData);
       }
       else if (this.auditorType === 'generalInfo') {
         if (objData.id)
           returnData = this.auditService.updateGeneralInfo(aid, objData);
         else
-          returnData = this.auditService.createGeneralInfo(aid, objData);
+          returnData = this.auditService.createGeneralInfo(objData);
       }
       else if (this.auditorType === 'interviwee') {
         if (objData.id)
           returnData = this.auditService.updateInterviewee(aid, objData);
         else
-          returnData = this.auditService.createInterviewee(aid, objData);
+          returnData = this.auditService.createInterviewee(objData);
       }
       else if (this.auditorType === 'operatingHours') {
         if (objData.id)
           returnData = this.auditService.updatePreauditoperationhours(aid, objData);
         else
-          returnData = this.auditService.createPreauditoperationhours(aid, objData);
+          returnData = this.auditService.createPreauditoperationhours(objData);
       }
       else if (this.auditorType === 'area') {
         if (objData.id)
           returnData = this.auditService.updatePreauditarea(aid, objData);
         else
-          returnData = this.auditService.createPreauditarea(aid, objData);
+          returnData = this.auditService.createPreauditarea(objData);
       }
       else if (this.auditorType === 'age') {
         if (objData.id)
           returnData = this.auditService.updatePreauditage(aid, objData);
         else
-          returnData = this.auditService.createPreauditage(aid, objData);
+          returnData = this.auditService.createPreauditage(objData);
       }
       else if (this.auditorType === 'hvacMaintainence') {
         if (objData.id)
           returnData = this.auditService.updatePreaudithvacmaintainence(aid, objData);
         else
-          returnData = this.auditService.createPreaudithvacmaintainence(aid, objData);
+          returnData = this.auditService.createPreaudithvacmaintainence(objData);
       }
       else if (this.auditorType === 'other') {
         if (objData.id)
           returnData = this.auditService.updatePreauditother(aid, objData);
         else
-          returnData = this.auditService.createPreauditother(aid, objData);
+          returnData = this.auditService.createPreauditother(objData);
       }
       else {
         if (objData.id)
           returnData = this.auditService.updatePreauditgeneralsiteaccessnotes(aid, objData);
         else
-          returnData = this.auditService.createPreauditgeneralsiteaccessnotes(aid, objData);
+          returnData = this.auditService.createPreauditgeneralsiteaccessnotes(objData);
       }
 
       returnData.subscribe((res: any) => {
@@ -728,46 +728,46 @@ export class FormComponent implements OnInit {
       return dataObj;
     }
     else if (this.auditorType === 'interviwee') {
-      dataObj = this.interviewee;
+      dataObj = { ...this.interviewee, auditId: Number(aid) }
       return dataObj;
     }
     else if (this.auditorType === 'operatingHours') {
       if (!this.operationHours.vacationDays)
         return null;
 
-      dataObj = this.operationHours;
+      dataObj = { ...this.operationHours, auditId: Number(aid) };
       return dataObj;
     }
     else if (this.auditorType === 'area') {
       if (!this.area.buildingTotalArea || !this.area.buildingConditionedArea)
         return null;
 
-      dataObj = this.area;
+      dataObj = { ...this.area, auditId: Number(aid) };
       return dataObj;
     }
     else if (this.auditorType === 'age') {
       if (!this.age.yearConstructed)
         return null;
 
-      dataObj = this.age;
+      dataObj = { ...this.age, auditId: Number(aid) };
       return dataObj;
     }
     else if (this.auditorType === 'hvacMaintainence') {
-      dataObj = this.hvacMaintenance;
+      dataObj = { ...this.hvacMaintenance, auditId: Number(aid) };
       return dataObj;
     }
     else if (this.auditorType === 'other') {
       if (!this.others.buildingElectricRateStructure || !this.others.buildingElectricUtilityCompany || !this.others.buildingGasRateStructure || !this.others.buildingGasUtilityCompany)
         return null;
 
-      dataObj = this.others;
+      dataObj = { ...this.others, auditId: Number(aid) };
       return dataObj;
     }
     else {
       if (!this.generalSiteAccessAndNotes.hvacEquipmentLocation)
         return null;
 
-      dataObj = this.generalSiteAccessAndNotes;
+      dataObj = { ...this.generalSiteAccessAndNotes, auditId: Number(aid) };
       return dataObj;
     }
   }

@@ -43,8 +43,8 @@ export class AuditService {
   getAuditorInfo(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditauditorinfo/${auditId}/`);
   }
-  createAuditorInfo(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditauditorinfo/${auditId}/`, data);
+  createAuditorInfo(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditauditorinfo/`, data);
   }
   updateAuditorInfo(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditauditorinfo/${auditId}/`, data);
@@ -53,8 +53,8 @@ export class AuditService {
   getGeneralInfo(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditgeneralclientinfo/${auditId}/`);
   }
-  createGeneralInfo(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditgeneralclientinfo/${auditId}/`, data);
+  createGeneralInfo(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditgeneralclientinfo/`, data);
   }
   updateGeneralInfo(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditgeneralclientinfo/${auditId}/`, data);
@@ -63,8 +63,8 @@ export class AuditService {
   getPreauditinterviewee(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditinterviewee/${auditId}/`);
   }
-  createInterviewee(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditinterviewee/${auditId}/`, data);
+  createInterviewee(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditinterviewee/`, data);
   }
   updateInterviewee(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditinterviewee/${auditId}/`, data);
@@ -73,8 +73,8 @@ export class AuditService {
   getPreauditoperationhours(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditoperationhours/${auditId}/`);
   }
-  createPreauditoperationhours(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditoperationhours/${auditId}/`, data);
+  createPreauditoperationhours(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditoperationhours/`, data);
   }
   updatePreauditoperationhours(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditoperationhours/${auditId}/`, data);
@@ -83,8 +83,8 @@ export class AuditService {
   getPreauditarea(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditarea/${auditId}/`);
   }
-  createPreauditarea(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditarea/${auditId}/`, data);
+  createPreauditarea(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditarea/`, data);
   }
   updatePreauditarea(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditarea/${auditId}/`, data);
@@ -93,8 +93,8 @@ export class AuditService {
   getPreauditage(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditage/${auditId}/`);
   }
-  createPreauditage(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditage/${auditId}/`, data);
+  createPreauditage(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditage/`, data);
   }
   updatePreauditage(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditage/${auditId}/`, data);
@@ -103,8 +103,8 @@ export class AuditService {
   getPreaudithvacmaintainence(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preaudithvacmaintainence/${auditId}/`);
   }
-  createPreaudithvacmaintainence(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preaudithvacmaintainence/${auditId}/`, data);
+  createPreaudithvacmaintainence(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preaudithvacmaintainence/`, data);
   }
   updatePreaudithvacmaintainence(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preaudithvacmaintainence/${auditId}/`, data);
@@ -113,8 +113,8 @@ export class AuditService {
   getPreauditother(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditother/${auditId}/`);
   }
-  createPreauditother(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditother/${auditId}/`, data);
+  createPreauditother(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditother/`, data);
   }
   updatePreauditother(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditother/${auditId}/`, data);
@@ -123,8 +123,8 @@ export class AuditService {
   getPreauditgeneralsiteaccessnotes(auditId: number): Observable<any> {
     return this.http.get(`${this.rootUrl}preauditgeneralsiteaccessnotes/${auditId}/`);
   }
-  createPreauditgeneralsiteaccessnotes(auditId: number, data: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}preauditgeneralsiteaccessnotes/${auditId}/`, data);
+  createPreauditgeneralsiteaccessnotes(data: any): Observable<any> {
+    return this.http.post(`${this.rootUrl}preauditgeneralsiteaccessnotes/`, data);
   }
   updatePreauditgeneralsiteaccessnotes(auditId: number, data: any): Observable<any> {
     return this.http.put(`${this.rootUrl}preauditgeneralsiteaccessnotes/${auditId}/`, data);
