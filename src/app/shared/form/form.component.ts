@@ -7,11 +7,15 @@ import { AuditService } from '../services/audit.service';
 import { EquipmentService } from '../services/equipment.service';
 
 class AuditorInfo {
+  id: number = 0;
+  auditId: number = 0;
   preAuditauditorName: string = '';
   preAuditauditorEmail: string = '';
   preAuditauditorPhoneNumber: string = '';
 }
 class GenralClientInfo {
+  id: number = 0;
+  auditId: number = 0;
   preAuditclientName: string = '';
   preAuditclientPosition: string = '';
   preAuditclientEmail: string = '';
@@ -28,12 +32,16 @@ class GenralClientInfo {
   preAuditauditEndDate = '';
 }
 class Interviewee {
+  id: number = 0;
+  auditId: number = 0;
   preAuditintervieweeName: string = '';
   preAuditintervieweePosition: string = '';
   preAuditintervieweeEmail: string = '';
   preAuditintervieweePhoneNum: any = null;
 }
 class OperationHours {
+  id: number = 0;
+  auditId: number = 0;
   vacationDays: any = null;
   mondayOpening: string = '';
   mondayClosing: string = '';
@@ -52,10 +60,14 @@ class OperationHours {
   notes: string = '';
 }
 class Area {
+  id: number = 0;
+  auditId: number = 0;
   buildingTotalArea: any = null;
   buildingConditionedArea: any = null;
 }
 class Age {
+  id: number = 0;
+  auditId: number = 0;
   yearConstructed: any = null;
   yearLightSystemInstalledOrReplaced: any = null;
   yearCoolingSystemInstalledOrReplaced: any = null;
@@ -63,18 +75,24 @@ class Age {
   yearKitchenEquipmentInstalledOrReplaced: any = null;
 }
 class HvacMaintenance {
+  id: number = 0;
+  auditId: number = 0;
   buildingHvacMaintainenceContractType: string = 'self-maintained';
   buildingHvacMaintainenceFrequency: any = null;
   buildingHvacContractorName: string = '';
   buildingHvacContractorPhoneNum: any = null;
 }
 class Others {
+  id: number = 0;
+  auditId: number = 0;
   buildingElectricUtilityCompany: string = '';
   buildingGasUtilityCompany: string = '';
   buildingGasRateStructure: string = '';
   buildingElectricRateStructure: string = '';
 }
 class GeneralSiteAccessAndNotes {
+  id: number = 0;
+  auditId: number = 0;
   hvacEquipmentLocation: string = '';
   buildingCompleteAccess: boolean = false;
   buildingGeneralNotes: string = '';
@@ -642,6 +660,33 @@ export class FormComponent implements OnInit {
       }
 
       returnData.subscribe((res: any) => {
+        if (this.auditorType === 'auditorInfo') {
+          this.auditorInfo = res;
+        }
+        else if (this.auditorType === 'generalInfo') {
+          this.genralClientInfo = res;
+        }
+        else if (this.auditorType === 'interviwee') {
+          this.interviewee = res;
+        }
+        else if (this.auditorType === 'operatingHours') {
+          this.operationHours = res;
+        }
+        else if (this.auditorType === 'area') {
+          this.area = res;
+        }
+        else if (this.auditorType === 'age') {
+          this.age = res;
+        }
+        else if (this.auditorType === 'hvacMaintainence') {
+          this.hvacMaintenance = res;
+        }
+        else if (this.auditorType === 'other') {
+          this.others = res;
+        }
+        else {
+          this.generalSiteAccessAndNotes = res;
+        }
         this.toastService.success('Form', 'Successfully saved form input');
       });
 
@@ -706,9 +751,8 @@ export class FormComponent implements OnInit {
       if (!this.auditorInfo.preAuditauditorName || !this.auditorInfo.preAuditauditorEmail || !this.auditorInfo.preAuditauditorPhoneNumber)
         return null;
 
-      dataObj = this.auditorInfo;
-      dataObj = { ...dataObj, auditId: aid };
-      return dataObj;
+      this.auditorInfo.auditId = Number(aid);
+      return this.auditorInfo;
     }
     else if (this.auditorType === 'generalInfo') {
       if (!this.genralClientInfo.preAuditclientName || !this.genralClientInfo.preAuditauditStartDate)
@@ -728,47 +772,47 @@ export class FormComponent implements OnInit {
       return dataObj;
     }
     else if (this.auditorType === 'interviwee') {
-      dataObj = { ...this.interviewee, auditId: Number(aid) }
-      return dataObj;
+      this.interviewee.auditId = Number(aid);
+      return this.interviewee;
     }
     else if (this.auditorType === 'operatingHours') {
       if (!this.operationHours.vacationDays)
         return null;
 
-      dataObj = { ...this.operationHours, auditId: Number(aid) };
-      return dataObj;
+      this.operationHours.auditId = Number(aid);
+      return this.operationHours;
     }
     else if (this.auditorType === 'area') {
       if (!this.area.buildingTotalArea || !this.area.buildingConditionedArea)
         return null;
 
-      dataObj = { ...this.area, auditId: Number(aid) };
-      return dataObj;
+      this.area.auditId = Number(aid);
+      return this.area;
     }
     else if (this.auditorType === 'age') {
       if (!this.age.yearConstructed)
         return null;
 
-      dataObj = { ...this.age, auditId: Number(aid) };
-      return dataObj;
+      this.age.auditId = Number(aid);
+      return this.age;
     }
     else if (this.auditorType === 'hvacMaintainence') {
-      dataObj = { ...this.hvacMaintenance, auditId: Number(aid) };
-      return dataObj;
+      this.hvacMaintenance.auditId = Number(aid);
+      return this.hvacMaintenance;
     }
     else if (this.auditorType === 'other') {
       if (!this.others.buildingElectricRateStructure || !this.others.buildingElectricUtilityCompany || !this.others.buildingGasRateStructure || !this.others.buildingGasUtilityCompany)
         return null;
 
-      dataObj = { ...this.others, auditId: Number(aid) };
-      return dataObj;
+      this.others.auditId = Number(aid);
+      return this.others;
     }
     else {
       if (!this.generalSiteAccessAndNotes.hvacEquipmentLocation)
         return null;
 
-      dataObj = { ...this.generalSiteAccessAndNotes, auditId: Number(aid) };
-      return dataObj;
+      this.generalSiteAccessAndNotes.auditId = Number(aid);
+      return this.generalSiteAccessAndNotes;
     }
   }
 
