@@ -58,6 +58,7 @@ export class AuditComponent implements OnInit {
         formData.append('cdd', res.cdd);
         formData.append('hdd', res.hdd);
         this.auditService.uploadFileData(formData).subscribe((res: any) => {
+          this.toastService.success('Success','Files have been saved.')
         });
       }
     });

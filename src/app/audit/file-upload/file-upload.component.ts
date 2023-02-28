@@ -16,7 +16,7 @@ export class FileUploadComponent {
 
   onChangeCDD(event: any) {
     if (event.target.files.length) {
-      if (event.target.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && event.target.files[0].type !== 'application/vnd.ms-excel') {
+      if (event.target.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && event.target.files[0].type !== 'application/vnd.ms-excel' && event.target.files[0].type !== 'text/csv') {
         this.formData.cdd = null;
         alert('please select only required extenstions');
         return;
@@ -37,7 +37,7 @@ export class FileUploadComponent {
   }
   onFileChangeHDD(event: any) {
     if (event.target.files.length) {
-      if (event.target.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && event.target.files[0].type !== 'application/vnd.ms-excel') {
+      if (event.target.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && event.target.files[0].type !== 'application/vnd.ms-excel' && event.target.files[0].type !== 'text/csv') {
         this.formData.hdd = null;
         alert('please select only required extenstions');
         return;
