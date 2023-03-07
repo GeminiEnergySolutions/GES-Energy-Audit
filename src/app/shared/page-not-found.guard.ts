@@ -13,8 +13,8 @@ export class PageNotFoundGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (state.url === '/admin') {
-      window.location.href = 'http://127.0.0.1:8000/admin/';
+    if (state.url === 'api//admin') {
+      window.location.href = 'http://127.0.0.1:8000/api/admin/';
       return false;
     }
     return true;

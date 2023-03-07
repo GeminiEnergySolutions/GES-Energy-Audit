@@ -17,43 +17,43 @@ export class EquipmentService {
   ) { }
 
   getSingleEquipmentByName(equipmentName: string): Observable<any> {
-    return this.http.get(`${this.rootUrl}equipment/${equipmentName}/`);
+    return this.http.get(`${this.rootUrl}api/equipment/${equipmentName}/`);
   }
   getAllEquipments(): Observable<any> {
-    return this.http.get(`${this.rootUrl}equipment/`);
+    return this.http.get(`${this.rootUrl}api/equipment/`);
   }
 
   getEquipmentTypes(equipmentId: string): Observable<any> {
-    return this.http.get(`${this.rootUrl}equipmentType/equipment/${equipmentId}/`);
+    return this.http.get(`${this.rootUrl}api/equipmentType/equipment/${equipmentId}/`);
   }
 
   getSingleEquipmentSubType(subTypeId: number): Observable<any> {
-    return this.http.get(`${this.rootUrl}equipmentSubType/${subTypeId}/`);
+    return this.http.get(`${this.rootUrl}api/equipmentSubType/${subTypeId}/`);
   }
   getEquipmentSubTypes(auditId: number, zoneId: number, equipmentId: string): Observable<any> {
-    return this.http.get(`${this.rootUrl}equipmentSubType/audit/${auditId}/zone/${zoneId}/equipment/${equipmentId}/`);
+    return this.http.get(`${this.rootUrl}api/equipmentSubType/audit/${auditId}/zone/${zoneId}/equipment/${equipmentId}/`);
   }
   createEquipmentSubType(equipmentSubTypeData: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}equipmentSubType/`, equipmentSubTypeData);
+    return this.http.post(`${this.rootUrl}api/equipmentSubType/`, equipmentSubTypeData);
   }
   updateEquipmentSubType(equipmentSubTypeData: any): Observable<any> {
-    return this.http.put(`${this.rootUrl}equipmentSubType/${equipmentSubTypeData.id}/`, equipmentSubTypeData);
+    return this.http.put(`${this.rootUrl}api/equipmentSubType/${equipmentSubTypeData.id}/`, equipmentSubTypeData);
   }
   deleteEquipmentSubType(equipmentSubTypeId: number): Observable<any> {
-    return this.http.delete(`${this.rootUrl}equipmentSubType/${equipmentSubTypeId}/`);
+    return this.http.delete(`${this.rootUrl}api/equipmentSubType/${equipmentSubTypeId}/`);
   }
 
   getEquipmentTypeFormSchema(typeId: number): Observable<any> {
-    return this.http.get(`${this.rootUrl}schema/type/${typeId}/`);
+    return this.http.get(`${this.rootUrl}api/schema/type/${typeId}/`);
   }
   getEquipmentFormDataBySubType(subTypeId: number): Observable<any> {
-    return this.http.get(`${this.rootUrl}equipmentForm/subType/${subTypeId}/`);
+    return this.http.get(`${this.rootUrl}api/equipmentForm/subType/${subTypeId}/`);
   }
   createEquipmentFormData(equipmentFormData: any): Observable<any> {
-    return this.http.post(`${this.rootUrl}equipmentForm/`, equipmentFormData);
+    return this.http.post(`${this.rootUrl}api/equipmentForm/`, equipmentFormData);
   }
   updateEquipmentFormData(equipmentFormData: any): Observable<any> {
-    return this.http.put(`${this.rootUrl}equipmentForm/${equipmentFormData.id}/`, equipmentFormData);
+    return this.http.put(`${this.rootUrl}api/equipmentForm/${equipmentFormData.id}/`, equipmentFormData);
   }
 
   // getSinglePlugLoad(auditId: number, zoneId: number, id: number) {
